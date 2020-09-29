@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img src="../assets/images/burger.png" alt="a burger">
+            <h1>Borger Eater Tracker</h1>
+        </div>
+        <form class="devour-form col-md-12 text-center">
+            {{#each burger_info }}
+            {{#unless this.devoured}}
+            <button type="submit" value={{this.id}} class="btn btn-warning devour">
+                <pre>{{this.id}}. {{this.burger_name}}</pre>
+                Devour It
+            </button>
+            {{!-- <div class="col-md-3 text_center">
+            <button type="submit" value={{this.id}} class="btn devour">Devour it</button>
+        </div> --}}
+            {{/unless}}
+            {{/each}}
+        </form>
+        {{#each burger_info }}
+        {{#if this.devoured}}
+        <div class="column-md-6 text_center">
+            <button value={{this.id}}>{{this.burger_name}}</button>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+<div class="container">
+    <div class="column-md-12 text-center">
+        <form action="/burgers/create" method="POST">
+            <input type="text" name="burger_name" class="btn new_burger">
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>

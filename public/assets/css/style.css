@@ -1,0 +1,214 @@
+body {
+  width: 99%;
+  height: 900px;
+  background-color: #fc6;
+}
+
+#top-bar {
+  margin-top: 28px;
+}
+
+.devour {
+  margin: 1%;
+  width: 50%;
+  height: auto;
+}
+
+@mixin btn-variant($border, $from, $to, $gloss, $color, $hover-from, $active-border) {
+  color: $color;
+  border-color: $border;
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
+  box-shadow: inset 0 1px $gloss, 0 1px 2px rgba(0,0,0,.2);
+  
+  &:hover,
+  &:focus,
+  &.focus {
+    border-color: $to;
+    background: linear-gradient(to bottom, $hover-from 0%, $from 100%);
+    box-shadow: inset 0 1px $color, 0 2px 3px rgba(0,0,0,.2);
+  }
+  
+  &:active,
+  &.active {
+    border-color: $active-border;
+    color: $gloss;
+    background: linear-gradient(to bottom, $to 0%, $border 100%);
+    box-shadow: inset 0 2px 2px $active-border;
+  }
+  
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    background: $hover-from;
+    border-color: $from;
+  }
+}
+
+@mixin btn-flat($active, $hover, $normal, $active-color, $color, $disabled) {
+  color: $color;
+  border-color: transparent;
+  background: $normal;
+  box-shadow: none;
+  
+  &:hover,
+  &:focus,
+  &.focus {
+    border-color: transparent;
+    color: #fff;
+    background: $hover;
+    box-shadow: none;
+  }
+  
+  &:active,
+  &.active {
+    border-color: $active;
+    color: $active-color;
+    background: $active;
+    box-shadow: none;
+  }
+  
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    background: $disabled;
+    border-color: $disabled;
+  }
+}
+
+.btn-warning {
+  @include btn-variant(#FB8C00, #FFB74D, #FFA726, #FFE0B2, #FFF3E0, #FFCC80, #F57C00);
+  
+  &.btn-flat {
+    @include btn-flat(#FB8C00, #FFB74D, #FFA726, #FFE0B2, #FFF3E0, #FFCC80);
+  }
+}
+
+.btn-danger {
+  @include btn-variant(#F4511E, #FF8A65, #FF7043, #FFCCBC, #FBE9E7, #FFAB91, #E64A19);
+  
+  &.btn-flat {
+    @include btn-flat(#F4511E, #FF8A65, #FF7043, #FFCCBC, #FBE9E7, #FFAB91);
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  whitespace: nowrap;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  user-select: none;
+  
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+  }
+  
+  &:hover,
+  &:focus,
+  &.focus {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+  
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+  }
+  
+  &.btn-xs {
+    padding: 3px 6px;
+    font-size: 1.2rem;
+  }
+  
+  &.btn-sm {
+    padding: 4px 8px;
+    font-size: 1.3rem;
+  }
+  
+  &.btn-lg {
+    padding: 8px 16px;
+    font-size: 1.6rem;
+  }
+}
+
+.spacing-reset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.list-reset {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  border: 0;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 990px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 990px;
+  }
+}
+
+.enter_section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#enter_text {
+  width: 400px;
+  height: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  font-size: 38px;
+}
+
+.task {
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.button-size {
+  padding-bottom: 20px;
+}
+
+#text-enter-button {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  color: #f30;
+}

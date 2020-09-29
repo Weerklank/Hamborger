@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgers</title>
+</head>
+
+<body>
+    {{{body}}}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    
+    $(".devour").on("click", function(event) {
+      event.preventDefault();
+  
+      var burger_id = $(this).val()
+      console.log(burger_id);
+       $.ajax({
+         method: "PUT",
+         url: "/burgers/" + burger_id
+       }).then(function(data) {
+         location.reload();
+       });
+  
+    });
+  });
+    </script>
+</body>
+
+</html>
