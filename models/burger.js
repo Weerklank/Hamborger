@@ -12,7 +12,6 @@ var burger = {
         })
     },
     updateOne: function(id, fn) {
-        console.log("burger.js", id)
         orm.updateOne(id, true, function(res) {
             fn(res)
         })
